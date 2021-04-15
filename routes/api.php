@@ -15,9 +15,9 @@ use App\Http\Controllers\StationController;
 |
 */
 
-Route::post('stations',[StationController::class,'store']);
-Route::put('stations/{id}',[StationController::class,'update']);
-Route::delete('stations/{id}',[StationController::class,'delete']);
+Route::post('stations/store',[StationController::class,'store']);
+Route::put('stations/{id}/update',[StationController::class,'update']);
+Route::delete('stations/{id}/delete',[StationController::class,'delete']);
 Route::get('stations/city/{id}',[StationController::class,'getStationsByCity']);
 Route::get('stations/opened/city/{id}',[StationController::class,'getOpenedStationByCity']);
 Route::get('stations/closest/',[StationController::class,'getClosestStation']);
