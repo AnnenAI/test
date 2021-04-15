@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\City;
 
 class Station extends Model
 {
 
     use HasFactory;
 
+    public $timestamps = false;
+    protected $fillable = ['name', 'latitude','longitude', 'city_id', 'opening', 'closing'];
+
     public function city(){
-      $this->belongsTo(City::class,'city_id','id');
+      return $this->belongsTo(City::class,'city_id');
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('stations',[StationController::class,'store']);
+Route::put('stations/{id}',[StationController::class,'update']);
+Route::delete('stations/{id}',[StationController::class,'delete']);
+Route::get('stations/city/{id}',[StationController::class,'getStationsByCity']);
+Route::get('stations/opened/city/{id}',[StationController::class,'getOpenedStationByCity']);
+Route::get('stations/closest/',[StationController::class,'getClosestStation']);

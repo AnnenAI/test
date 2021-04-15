@@ -16,7 +16,8 @@ class CreateStationsTable extends Migration
         Schema::create('stations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->point('coordinates');
+            $table->decimal('latitude', 11, 7);
+            $table->decimal('longitude', 11, 7);
             $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
             $table->time('opening');
             $table->time('closing');
